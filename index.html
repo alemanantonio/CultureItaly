@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Italian Culture Explorer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Explore Italian Culture</h1>
+      <nav>
+        <a href="#quiz" class="nav-link">Quiz</a>
+        <a href="#map" class="nav-link">Interactive Map</a>
+        <a href="#info" class="nav-link">Info Zone</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <h2>Discover the Beauty of Italy</h2>
+        <p>From ancient history to modern cuisine, explore the rich cultural heritage of Italy</p>
+        <button id="explore-btn" class="cta-button">Start Exploring</button>
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="section">
+      <div class="section-header">
+        <h2>Test Your Knowledge</h2>
+        <div class="score-display">
+          <span>Best Score: <span id="best-score">0</span>/6</span>
+          <span>Current Score: <span id="current-score">0</span>/6</span>
+        </div>
+      </div>
+      <div id="quiz-container"></div>
+      <div class="quiz-controls">
+        <button id="submit-btn" class="btn-primary">Submit Answers</button>
+        <button id="retry-btn" class="btn-secondary">Try Again</button>
+      </div>
+      <div id="quiz-results"></div>
+    </section>
+
+ <!-- Map Section -->
+<section id="map" class="section">
+  <h2>Interactive Map of Italy</h2>
+  <div id="map-container">
+    <!-- Imagen del mapa con áreas clickeables -->
+    <div class="map-image-container">
+      <img src="Italy-map.png" alt="Map of Italy" usemap="#italyMap" id="italy-map-image" />
+      <map name="italyMap">
+        <!-- Áreas clickeables para cada región - COORDENADAS EXACTAS -->
+        <area shape="circle" coords="380,280,20" href="#" alt="Rome" data-city="rome" class="clickable-area">
+        <area shape="circle" coords="450,150,20" href="#" alt="Venice" data-city="venice" class="clickable-area">
+        <area shape="circle" coords="400,380,20" href="#" alt="Naples" data-city="naples" class="clickable-area">
+        <area shape="circle" coords="350,220,20" href="#" alt="Florence" data-city="florence" class="clickable-area">
+        <area shape="circle" coords="320,180,20" href="#" alt="Milan" data-city="milan" class="clickable-area">
+        <area shape="circle" coords="370,200,20" href="#" alt="Bologna" data-city="bologna" class="clickable-area">
+        <area shape="circle" coords="350,480,20" href="#" alt="Palermo" data-city="palermo" class="clickable-area">
+        <area shape="circle" coords="420,450,20" href="#" alt="Catania" data-city="catania" class="clickable-area">
+        <area shape="circle" coords="180,300,20" href="#" alt="Sardinia" data-city="sardinia" class="clickable-area">
+        <area shape="circle" coords="300,320,20" href="#" alt="Pisa" data-city="pisa" class="clickable-area">
+      </map>
+      
+      <!-- Puntos visuales en el mapa - POSICIONES EXACTAS -->
+      <!-- Roma (centro-oeste) -->
+      <div class="map-point" style="top: 470px; left: 380px;" data-city="rome"></div>
+      <!-- Venecia (noreste) -->
+      <div class="map-point" style="top: 170px; left: 378px;" data-city="venice"></div>
+      <!-- Nápoles (sudoeste) -->
+      <div class="map-point" style="top: 570px; left: 495px;" data-city="naples"></div>
+      <!-- Florencia (centro-norte) -->
+      <div class="map-point" style="top: 318px; left: 280px;" data-city="florence"></div>
+      <!-- Milán (noroeste) -->
+      <div class="map-point" style="top: 180px; left: 195px;" data-city="milan"></div>
+      <!-- Bolonia (norte-centro) -->
+      <div class="map-point" style="top: 250px; left: 270px;" data-city="bologna"></div>
+      <!-- Palermo (Sicilia noroeste) -->
+      <div class="map-point" style="top: 771px; left: 420px;" data-city="palermo"></div>
+      <!-- Cerdeña (oeste) -->
+      <div class="map-point" style="top: 270px; left: 180px;" data-city="sardinia"></div>
+    </div>
+
+      <!-- Ventana emergente -->
+      <div id="map-popup" class="popup">
+        <div class="popup-content">
+          <span class="close-btn">&times;</span>
+          <div class="popup-header">
+            <h3 id="popup-title">City Name</h3>
+          </div>
+          <div class="popup-body">
+            <img id="popup-image" src="" alt="City Image" />
+            <div class="popup-info">
+              <p id="popup-description">City description will appear here.</p>
+              <div class="city-details">
+                <div class="detail-item">
+                  <span class="detail-label">Region:</span>
+                  <span id="popup-region" class="detail-value">-</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Population:</span>
+                  <span id="popup-population" class="detail-value">-</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Famous For:</span>
+                  <span id="popup-famous" class="detail-value">-</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+          
+
+    <!-- Info Section -->
+    <section id="info" class="section">
+      <h2>Culture & History</h2>
+      <div class="category-selector">
+        <button class="category-btn active" data-category="cuisine">Cuisine</button>
+        <button class="category-btn" data-category="art">Art & Architecture</button>
+        <button class="category-btn" data-category="festivals">Festivals</button>
+        <button class="category-btn" data-category="fashion">Fashion</button>
+        <button class="category-btn" data-category="music">Music & Opera</button>
+      </div>
+      <div id="info-container"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>Page made by Antonio Aleman, Luis Cruz & Daniel Esau</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
